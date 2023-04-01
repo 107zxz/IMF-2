@@ -1,0 +1,329 @@
+[gd_scene load_steps=20 format=3 uid="uid://bb2bj2birlpbd"]
+
+[ext_resource type="Script" path="res://intro.gd" id="1_xgjk4"]
+[ext_resource type="Texture2D" uid="uid://bt1q1ebeqdr18" path="res://gfx/logos/datacenters.png" id="2_aslqj"]
+[ext_resource type="AudioStream" uid="uid://cj0ecmeatuidj" path="res://music/Magic Escape Room [1G3Phdm2bvw].mp3" id="2_cy2sx"]
+[ext_resource type="Texture2D" uid="uid://n46isd18xgfc" path="res://gfx/logos/engine.png" id="3_t64ac"]
+[ext_resource type="Texture2D" uid="uid://blnmj3r5wvnuk" path="res://gfx/logos/googel.png" id="4_tfudd"]
+[ext_resource type="Texture2D" uid="uid://b46xb5f8qsny" path="res://gfx/logos/hwastudios.png" id="5_8vhhm"]
+[ext_resource type="Texture2D" uid="uid://btp7asfnxgpp4" path="res://gfx/logos/indstag.png" id="6_sgs0c"]
+[ext_resource type="Texture2D" uid="uid://ddeldhpdd5r1c" path="res://gfx/logos/license.png" id="7_dy0qm"]
+[ext_resource type="Texture2D" uid="uid://b06s2ld4wxvv6" path="res://gfx/logos/sac.png" id="8_8hgbc"]
+[ext_resource type="Texture2D" uid="uid://p216lff5rgyd" path="res://gfx/Stoat.png" id="10_1suwb"]
+[ext_resource type="Texture2D" uid="uid://doyk81t2fgcaq" path="res://gfx/logos/IMF2.png" id="10_fy6xp"]
+[ext_resource type="Script" path="res://Tips.gd" id="11_dsusv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3v8ii"]
+font_size = 26
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_bfidn"]
+resource_name = "speen"
+length = 12.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(114, 94), Vector2(0, 94), Vector2(114, 94), Vector2(0, 94), Vector2(114, 94), Vector2(0, 94), Vector2(114, 94), Vector2(0, 94), Vector2(114, 94), Vector2(0, 94), Vector2(114, 94), Vector2(0, 94)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(423, 223), Vector2(480, 223), Vector2(423, 223), Vector2(480, 223), Vector2(423, 223), Vector2(480, 223), Vector2(423, 223), Vector2(480, 223), Vector2(423, 223), Vector2(480, 223), Vector2(423, 223), Vector2(480, 223)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 3, 5, 7, 9, 11),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Tip")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(12),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"new_tip"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_jt43t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(480, 223)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qq36n"]
+_data = {
+"RESET": SubResource("Animation_jt43t"),
+"speen": SubResource("Animation_bfidn")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_i5sjt"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erfnv"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nf7s"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xgjk4")
+
+[node name="MusPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cy2sx")
+autoplay = true
+
+[node name="Sponsorships" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AntiCheat" type="TextureRect" parent="Sponsorships"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.5
+offset_top = -90.5
+offset_right = 254.5
+offset_bottom = 90.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_8hgbc")
+
+[node name="License" type="TextureRect" parent="Sponsorships"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.0
+offset_top = -89.5
+offset_right = 274.0
+offset_bottom = 89.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_dy0qm")
+
+[node name="CreatorsOf" type="TextureRect" parent="Sponsorships"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.0
+offset_top = -30.5
+offset_right = 239.0
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_sgs0c")
+
+[node name="DataCentres" type="TextureRect" parent="Sponsorships"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -73.0
+offset_right = 251.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_aslqj")
+
+[node name="Studio" type="TextureRect" parent="Sponsorships"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.5
+offset_top = -49.5
+offset_right = 236.5
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_8vhhm")
+
+[node name="Engine" type="TextureRect" parent="Sponsorships"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -227.0
+offset_top = -68.5
+offset_right = 227.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_t64ac")
+
+[node name="Analytics" type="TextureRect" parent="Sponsorships"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.5
+offset_top = -71.5
+offset_right = 184.5
+offset_bottom = 71.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_tfudd")
+
+[node name="Title" type="TextureRect" parent="Sponsorships"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -69.0
+offset_right = 140.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_fy6xp")
+
+[node name="Label" type="Label" parent="Sponsorships/Title"]
+layout_mode = 0
+offset_left = -34.0
+offset_top = 182.0
+offset_right = 307.0
+offset_bottom = 221.0
+text = "Press the ANY key to start..."
+label_settings = SubResource("LabelSettings_3v8ii")
+horizontal_alignment = 1
+
+[node name="LoadingScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stoat" type="TextureRect" parent="LoadingScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -47.0
+offset_right = 114.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_1suwb")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LoadingScreen/Stoat"]
+libraries = {
+"": SubResource("AnimationLibrary_qq36n")
+}
+
+[node name="Tip" type="Label" parent="LoadingScreen"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 50.646
+offset_bottom = 76.646
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_i5sjt")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("11_dsusv")
+
+[node name="ProgressBar" type="ProgressBar" parent="LoadingScreen/Tip"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = 22.0
+offset_right = -26.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_erfnv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2nf7s")
+step = 1.0
